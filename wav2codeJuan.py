@@ -17,7 +17,7 @@ from scipy.io.wavfile import read
 L = "\n"    # salto de linea
 T = "\t"
 sep = ", "
-archivo = "do 4 periodo 16bit.wav"  # convertir en argumento
+archivo = "test.wav"  # convertir en argumento...
 destino = archivo.split(".", 1)
 destino = destino[0] + ".cpp"
 
@@ -60,10 +60,11 @@ fecha = date.today()
 fechaStr = "   Fecha: " + fecha.strftime("%B %d, %Y") +L
 nombre = "   Archivo: " + archivo +L
 nSamples = "   Cantidad de samples: " + str(len(audio)) +L
+rate = "   Sample Rate: " + str(sr) + " Hz" +L
 cierre = "*/" +L +L
 constante = "#define N_ELEMENTOS " + str(len(audio)) +L
 
-salida = comienzo + juan + fechaStr + nombre + nSamples + cierre + constante + L + texto
+salida = comienzo + juan + fechaStr + nombre + nSamples + rate + cierre + constante + L + texto
 
 # escribe el archivo
 archivoSalida = open(destino,"w") 
